@@ -14,6 +14,7 @@ public class AIController : MonoBehaviour
     //[HideInInspector]
     public Transform TargetPoint;
 
+
     private void Start()
     {   
         carMoveSystem = GetComponent<CarMoveSystem>();

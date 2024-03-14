@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpeedUpItem : BaseItem
 {   
     public override void OnGetItem(PlayerController player)
-    {
+    {   
         player.StartCoroutine(SpeedUp(player));
     }
 
