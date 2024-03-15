@@ -5,37 +5,28 @@ using UnityEngine;
 
 public class PlayerParticle : MonoBehaviour
 {
-    public bool bIsParticle = true;
-    public ParticleSystem Wheel_Particle;
-
-    private void Start()
-    {
-        
-    }
+    public ParticleSystem particleSystem;
+    public float raycastDistance = 2f;
 
     void Update()
     {
         RaycastHit hit;
 
-        ParticleSystem.EmissionModule Emission;
+        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance);
 
-        if (Physics.Raycast(transform.position, -transform.up, out hit))
-        {   
-            bIsParticle = true;
-
-            if (bIsParticle)
+        if (isGrounded)
+        {
+            if (!particleSystem.isPlaying)
             {
-                Emission = Wheel_Particle.emission;
-
-                if (hit.distance > 3)
-                {
-                    Emission.rateOverTime = 0;
-                }
+                particleSystem.Play();
             }
         }
         else
         {
-            bIsParticle = false;
+            if (particleSystem.isPlaying)
+            {
+                particleSystem.Stop();
+            }
         }
     }
 }

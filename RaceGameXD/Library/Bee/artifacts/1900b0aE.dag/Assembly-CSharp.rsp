@@ -370,6 +370,7 @@
 "Assets/Script/Car/PlayerController.cs"
 "Assets/Script/Core/BasePart.cs"
 "Assets/Script/Core/EnumTypes.cs"
+"Assets/Script/Core/GameManager.cs"
 "Assets/Script/Core/ItemManager.cs"
 "Assets/Script/Items/SpeedUpItem.cs"
 "Assets/Script/Parts/CityWheel.cs"

@@ -6853,8 +6853,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19628929, y: -0.000000016871645, z: 0.0000000033774281, w: 0.98054606}
-  m_LocalPosition: {x: 1.68, y: 6.04, z: -9.400001}
+  m_LocalRotation: {x: 0.1962893, y: -1e-45, z: 0, w: 0.98054606}
+  m_LocalPosition: {x: 1.68, y: 12.88, z: -9.400001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7042,8 +7042,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094342282}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.19628929, y: -0.000000016871645, z: 0.0000000033774281, w: 0.98054606}
-  m_LocalPosition: {x: 1.68, y: 6.04, z: -9.400001}
+  m_LocalRotation: {x: 0.1962893, y: -1e-45, z: -0, w: 0.98054606}
+  m_LocalPosition: {x: 1.68, y: 12.88, z: -9.400001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9934,7 +9934,7 @@ Transform:
   m_GameObject: {fileID: 6835357242187774285}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.68, y: 1.01, z: 2.66}
+  m_LocalPosition: {x: 1.68, y: 7.85, z: 2.66}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10273,8 +10273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a292f2ac2ce3a149bf1191193de98b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bIsParticle: 1
-  Wheel_Particle: {fileID: 57379932}
+  particleSystem: {fileID: 57379932}
+  raycastDistance: 2
 --- !u!23 &7003231376519523695
 MeshRenderer:
   m_ObjectHideFlags: 0
