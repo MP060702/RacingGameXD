@@ -5,27 +5,43 @@ using UnityEngine;
 
 public class PlayerParticle : MonoBehaviour
 {
-    public ParticleSystem particleSystem;
-    public float raycastDistance = 2f;
+    [HideInInspector]
+    public Rigidbody _rigidbody;
+    public ParticleSystem[] WheelParticle;
+    public float RaycastDistance = 2f;
+    public float ActivationSpeed;
+    public float CarVelocity = 0;
+
+
+
+    private void Start()
+    {
+        _rigidbody = GetComponent<Rigidbody>();
+    }
 
     void Update()
     {
+        CarVelocity = _rigidbody.velocity.magnitude;
+
         RaycastHit hit;
 
-        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance);
+        bool isGrounded = Physics.Raycast(transform.position, Vector3.down, out hit, RaycastDistance);
 
-        if (isGrounded)
+        foreach(var particle in WheelParticle)
         {
-            if (!particleSystem.isPlaying)
+            if (isGrounded && _rigidbody.velocity.magnitude > ActivationSpeed)
             {
-                particleSystem.Play();
+                if (!particle.isPlaying)
+                {
+                    particle.Play();
+                }
             }
-        }
-        else
-        {
-            if (particleSystem.isPlaying)
+            else
             {
-                particleSystem.Stop();
+                if (particle.isPlaying)
+                {
+                    particle.Stop();
+                }
             }
         }
     }

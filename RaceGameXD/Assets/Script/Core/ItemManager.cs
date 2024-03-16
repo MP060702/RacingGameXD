@@ -14,11 +14,10 @@ public class BaseItem : MonoBehaviour
 public class ItemManager : MonoBehaviour
 {   
     public List<GameObject> Items;
-    public Transform WayPoints;
 
     public void SpawnItem()
     {
-        foreach(Transform spawnPoint in WayPoints.transform)
+        foreach(Transform spawnPoint in GameManager.Instance.WayPoints.transform)
         {
             if(Random.Range(0, 3) == 0)
             {

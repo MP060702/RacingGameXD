@@ -30,8 +30,10 @@ public class PlayerController : MonoBehaviour
 
         if (Vector3.Distance(TargetPoint.position, transform.position) <= 30)
         {
-            if (WayPoints.childCount > WayIndex)
+            if (WayPoints.childCount > WayIndex)    
                 WayIndex++;
+
+            GameManager.Instance._AIEnemySpawner.EnemySpawn();
 
             if (WayIndex == WayPoints.childCount)
             {
