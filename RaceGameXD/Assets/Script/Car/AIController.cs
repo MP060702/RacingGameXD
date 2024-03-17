@@ -41,7 +41,7 @@ public class AIController : MonoBehaviour
         if (Vector3.Distance(TargetPoint.position, transform.position) <= 30)
         {
             if (WayPoints.childCount > WayIndex)
-            {
+            {   
                 WayIndex++;
             }
 

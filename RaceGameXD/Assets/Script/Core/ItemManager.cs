@@ -13,7 +13,8 @@ public class BaseItem : MonoBehaviour
 
 public class ItemManager : MonoBehaviour
 {   
-    public List<GameObject> Items;
+    public GameObject[] SpeedUPItems;
+    public GameObject[] Cointems;
 
     public void SpawnItem()
     {
@@ -21,8 +22,9 @@ public class ItemManager : MonoBehaviour
         {
             if(Random.Range(0, 3) == 0)
             {
-                Instantiate(Items[Random.Range(0, Items.Count)], spawnPoint.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
+                Instantiate(SpeedUPItems[Random.Range(0, SpeedUPItems.Length)], spawnPoint.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
             }
+                Instantiate(Cointems[Random.Range(0, Cointems.Length)], spawnPoint.position + new Vector3(Random.Range(-10, 10), 0, Random.Range(-10, 10)), Quaternion.identity);
         }
     }
 

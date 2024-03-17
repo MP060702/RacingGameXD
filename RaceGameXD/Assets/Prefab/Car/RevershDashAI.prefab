@@ -2065,6 +2065,7 @@ GameObject:
   - component: {fileID: 8813139181577805509}
   - component: {fileID: 5771075735674278509}
   - component: {fileID: 1298808220606471170}
+  - component: {fileID: -1114375229443746676}
   m_Layer: 0
   m_Name: RevershDashAI
   m_TagString: Player
@@ -2140,6 +2141,20 @@ MonoBehaviour:
   MaxMotor: 500
   MaxSteer: 25
   BreakForce: 10000
+--- !u!114 &-1114375229443746676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8389323913263904244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd51deaff8f54ca4dba5e15c22a7350f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TargetPoint: {fileID: 0}
+  WayIndex: 0
 --- !u!1 &8554989583761045427
 GameObject:
   m_ObjectHideFlags: 0

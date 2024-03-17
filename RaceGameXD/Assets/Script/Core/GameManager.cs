@@ -31,5 +31,9 @@ public class GameManager : MonoBehaviour
     }
 
     public PlayerController Player() { return PlayerObj.GetComponent<PlayerController>(); }
-
+    
+    public void RaceStart()
+    {
+        _AIEnemySpawner.StartCoroutine("SpawnEnemy");
+    }
 }
