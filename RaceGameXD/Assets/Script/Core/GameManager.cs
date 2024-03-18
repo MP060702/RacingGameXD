@@ -28,12 +28,18 @@ public class GameManager : MonoBehaviour
     {
         _AIEnemySpawner = GetComponent<AIEnemySpawner>();
         _ItemManager = GetComponent<ItemManager>();
+        RaceStart();
+    }
+
+    private void Update()
+    {
+       
     }
 
     public PlayerController Player() { return PlayerObj.GetComponent<PlayerController>(); }
-    
+
     public void RaceStart()
     {
-        _AIEnemySpawner.StartCoroutine("SpawnEnemy");
+        _ItemManager.StartItemSpawn();
     }
 }
