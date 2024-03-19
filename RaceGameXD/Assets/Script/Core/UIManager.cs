@@ -11,6 +11,9 @@ public class UIManager : MonoBehaviour
     public Image[] BuyPartsIcons;
     public Sprite[] BuyPartsSprites;
 
+    public int PlayerLaps;
+    public int AILaps;
+
     public void MoveNeedle()
     {
         playerVelo = GameManager.Instance.Player()._rigidBody.velocity.magnitude * 3.6f ;
@@ -25,12 +28,13 @@ public class UIManager : MonoBehaviour
 
         string[] buyPartsName = { "DesertWheel", "MountainWheel", "CityWheel", "SixCylinder", "EightCylinder" };
         for (int i = 0; i < buyPartsName.Length; i++)
-        {
+        {   
             string newPartName = buyPartsName[i].Substring(0, buyPartsName[i].Length - 7);
             GameObject buyPart = GameObject.Find(newPartName);
 
             if (buyPart != null)
             {
+                BuyPartsIcons[partIconIndex].gameObject.SetActive(true);
                 BuyPartsIcons[partIconIndex].sprite = BuyPartsSprites[i];
 
                 if(partIconIndex < BuyPartsSprites.Length - 1)
@@ -39,8 +43,5 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void TimeStart()
-    {
 
-    }
 }

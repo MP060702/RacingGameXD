@@ -17,7 +17,7 @@ public class CarMoveSystem : MonoBehaviour
 {
     public List<AxleInfo> AxleInfos;
     public float MaxMotor;
-    public float MaxSteer ;
+    public float MaxSteer;
     public float BreakForce;
 
     public void ApplyLocalPositionToVisuals(WheelCollider collider)
@@ -44,7 +44,7 @@ public class CarMoveSystem : MonoBehaviour
 
         foreach (AxleInfo axleInfo in AxleInfos)
         {
-            if(axleInfo.b_Steering)
+            if (axleInfo.b_Steering)
             {
                 axleInfo.LeftWheel.steerAngle = steering;
                 axleInfo.RightWheel.steerAngle = steering;
@@ -58,10 +58,11 @@ public class CarMoveSystem : MonoBehaviour
             float _break = (bIsBreak ? 1 : 0);
 
             axleInfo.LeftWheel.brakeTorque = BreakForce * _break;
-            axleInfo.RightWheel.brakeTorque = BreakForce *_break;
+            axleInfo.RightWheel.brakeTorque = BreakForce * _break;
 
             ApplyLocalPositionToVisuals(axleInfo.LeftWheel);
             ApplyLocalPositionToVisuals(axleInfo.RightWheel);
         }
     }
+
 }

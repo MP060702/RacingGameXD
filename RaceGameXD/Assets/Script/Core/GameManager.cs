@@ -13,6 +13,10 @@ public class GameManager : MonoBehaviour
     public ItemManager _ItemManager;
     public UIManager _UIManager;
 
+    private float _startTime = 0;
+    private float _endTime = 0;
+    public float RaceClearTime;
+
     private void Awake()
     {
         if(Instance == null)
@@ -34,8 +38,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void Update()
-    {
+    {   
         _UIManager.MoveNeedle();
+
+
     }
 
     public PlayerController Player() { return PlayerObj.GetComponent<PlayerController>(); }
@@ -43,6 +49,17 @@ public class GameManager : MonoBehaviour
     public void RaceStart()
     {
         _ItemManager.StartItemSpawn();
+    }
+
+    public void TimeStart()
+    {
+        _startTime = Time.time;
+    }
+
+    public void TimeEnd()
+    {
+        _endTime = Time.time;
+        RaceClearTime = _endTime - _startTime;
     }
 
 }

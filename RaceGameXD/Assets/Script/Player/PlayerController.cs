@@ -13,9 +13,12 @@ public class PlayerController : MonoBehaviour
     public int WayIndex;
     [HideInInspector] public float DefaultMaxMotor;
 
-
     [HideInInspector] 
     public Transform TargetPoint;
+
+    [HideInInspector]
+    public bool CanTouchFinishLine = false;
+
 
     private void Start()
     {
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
             if (WayIndex == WayPoints.childCount)
             {
                 WayIndex = 0;
+                CanTouchFinishLine = true;
             }
 
             TargetPoint = WayPoints.GetChild(WayIndex);
@@ -47,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+
     }
 
     void MoveInputSystem()
@@ -63,14 +68,31 @@ public class PlayerController : MonoBehaviour
         _carMoveSystem.MaxMotor = motorSpeed;
     }
 
+    public void AddParts()
+    {
+        for(int i = 0; i < GameInstance.Instance.Parts.Count; i++)
+        {
+            if (GameInstance.Instance.Parts[i] != null)
+            {   
+                GameObject partObj = Instantiate(GameInstance.Instance.Parts[i], transform.position, transform.rotation);
+                partObj.transform.parent = transform;
+            }
+        }
+    }
+
     public void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.GetComponent<BaseItem>())
         {
             BaseItem item = collision.gameObject.GetComponent<BaseItem>();
-            Debug.Log(collision.gameObject.name);
+            //string itemObjName = collision.gameObject.name.Substring(0, collision.gameObject.name.Length - 7);
             item.OnGetItem(this);
             Destroy(collision.gameObject);
+        }
+        
+        if(collision.gameObject.name == "FinishLine" && CanTouchFinishLine == true)
+        {
+            GameManager.Instance._UIManager.PlayerLaps += 1;
         }
     }
    

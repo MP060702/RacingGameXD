@@ -14,6 +14,8 @@ public class AIController : MonoBehaviour
     //[HideInInspector]
     public Transform TargetPoint;
 
+    [HideInInspector]
+    public bool AICanTouchFinishLine = false;
 
     private void Start()
     {   
@@ -51,6 +53,14 @@ public class AIController : MonoBehaviour
             }
 
             TargetPoint = WayPoints.GetChild(WayIndex);
+        }
+    }
+
+    public void OnTriggerEnter(Collider collision)
+    {
+        if (collision.gameObject.name == "FinishLine" && AICanTouchFinishLine == true)
+        {
+            GameManager.Instance._UIManager.AILaps += 1;
         }
     }
 }
