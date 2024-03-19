@@ -18,6 +18,7 @@ public class ReverseDashAI : MonoBehaviour
     // Update is called once per frame
     private void FixedUpdate()
     {
+        FoundPlayer();
         FoundWayPoint();
         MovedAI();
     }
@@ -34,7 +35,6 @@ public class ReverseDashAI : MonoBehaviour
     {
         if (Vector3.Distance(TargetPoint.position, transform.position) <= 30)
         {
-            FoundPlayer();
             WayIndex--;
             if (WayIndex < 0)
             {
@@ -49,9 +49,9 @@ public class ReverseDashAI : MonoBehaviour
     {
         if(Vector3.Distance(GameManager.Instance.Player().transform.position, transform.position) <= 20)
         {   
-            Vector3 playerPos = new Vector3(GameManager.Instance.Player().transform.position.x, transform.position.y, GameManager.Instance.Player().transform.position.z);
-            
-            transform.LookAt(playerPos);
+            Vector3 playerDir = GameManager.Instance.Player().transform.position - transform.position;
+            float lookRotationSpeed = 3f; 
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(playerDir), Time.deltaTime * lookRotationSpeed);
         }
     }
 }

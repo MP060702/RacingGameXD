@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
     public AIEnemySpawner _AIEnemySpawner;
     public ItemManager _ItemManager;
+    public UIManager _UIManager;
 
     private void Awake()
     {
@@ -28,12 +29,13 @@ public class GameManager : MonoBehaviour
     {
         _AIEnemySpawner = GetComponent<AIEnemySpawner>();
         _ItemManager = GetComponent<ItemManager>();
+        _UIManager = GetComponent<UIManager>();
         RaceStart();
     }
 
     private void Update()
     {
-       
+        _UIManager.MoveNeedle();
     }
 
     public PlayerController Player() { return PlayerObj.GetComponent<PlayerController>(); }
@@ -42,4 +44,5 @@ public class GameManager : MonoBehaviour
     {
         _ItemManager.StartItemSpawn();
     }
+
 }
