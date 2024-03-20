@@ -18,6 +18,7 @@ public class ForwardDashAI : MonoBehaviour
 
     private void Update()
     {
+        FoundPlayer();
         FoundWayPoint();
         MovedAI();
     }
@@ -52,9 +53,9 @@ public class ForwardDashAI : MonoBehaviour
     {
         if (Vector3.Distance(GameManager.Instance.Player().transform.position, transform.position) <= 20)
         {
-            Vector3 playerPos = new Vector3(GameManager.Instance.Player().transform.position.x, transform.position.y, GameManager.Instance.Player().transform.position.z);
-
-            transform.LookAt(playerPos);
+            Vector3 playerDir = GameManager.Instance.Player().transform.position - transform.position;
+            float lookRotationSpeed = 3f;
+            transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(playerDir), Time.deltaTime * lookRotationSpeed);
         }
     }
 }

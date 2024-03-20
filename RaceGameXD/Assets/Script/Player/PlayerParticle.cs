@@ -12,8 +12,6 @@ public class PlayerParticle : MonoBehaviour
     public float ActivationSpeed;
     public float CarVelocity = 0;
 
-
-
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();

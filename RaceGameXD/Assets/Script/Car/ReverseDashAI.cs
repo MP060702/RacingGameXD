@@ -48,7 +48,8 @@ public class ReverseDashAI : MonoBehaviour
     public void FoundPlayer()
     {
         if(Vector3.Distance(GameManager.Instance.Player().transform.position, transform.position) <= 20)
-        {   
+        {
+
             Vector3 playerDir = GameManager.Instance.Player().transform.position - transform.position;
             float lookRotationSpeed = 3f; 
             transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.LookRotation(playerDir), Time.deltaTime * lookRotationSpeed);

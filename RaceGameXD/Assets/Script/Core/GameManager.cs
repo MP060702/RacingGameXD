@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     public ItemManager _ItemManager;
     public UIManager _UIManager;
 
-    private float _startTime = 0;
-    private float _endTime = 0;
+    public float _startTime = 0;
+    public float _endTime = 0;
     public float RaceClearTime;
 
     private void Awake()
@@ -40,8 +40,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {   
         _UIManager.MoveNeedle();
-
-
+        TimeStart();
     }
 
     public PlayerController Player() { return PlayerObj.GetComponent<PlayerController>(); }

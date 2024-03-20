@@ -1,10 +1,11 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
-{
+{   
     [HideInInspector] 
     public Rigidbody _rigidBody;
     private CarMoveSystem _carMoveSystem;
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public bool CanTouchFinishLine = false;
 
+    public GameObject Danger;
 
     private void Start()
     {
@@ -85,7 +87,8 @@ public class PlayerController : MonoBehaviour
         if (collision.gameObject.GetComponent<BaseItem>())
         {
             BaseItem item = collision.gameObject.GetComponent<BaseItem>();
-            //string itemObjName = collision.gameObject.name.Substring(0, collision.gameObject.name.Length - 7);
+            string itemObjName = collision.gameObject.name.Substring(0, collision.gameObject.name.Length - 7);
+            GameManager.Instance._UIManager.MarkItems(itemObjName);
             item.OnGetItem(this);
             Destroy(collision.gameObject);
         }
