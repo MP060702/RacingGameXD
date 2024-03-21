@@ -48,7 +48,7 @@ public class AIEnemySpawner : MonoBehaviour
 
     public void SpawnFowardDashAI()
     {
-        int SpawnIndex = GameManager.Instance.Player().WayIndex -1;
+        int SpawnIndex = GameManager.Instance.Player().WayIndex - 1;
 
         if(SpawnIndex <= 0)
         {

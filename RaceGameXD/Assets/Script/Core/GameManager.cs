@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         _AIEnemySpawner = GetComponent<AIEnemySpawner>();
         _ItemManager = GetComponent<ItemManager>();
         _UIManager = GetComponent<UIManager>();
-        StartCoroutine("SpawnEnemy");
+        _AIEnemySpawner.StartCoroutine("SpawnEnemy");
         RaceStart();
     }
 
@@ -62,5 +62,6 @@ public class GameManager : MonoBehaviour
         _endTime = Time.time;
         RaceClearTime = _endTime - _startTime;
     }
+
 
 }

@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.V)) GameManager.Instance._UIManager.GoShop();
     }
 
     void MoveInputSystem()

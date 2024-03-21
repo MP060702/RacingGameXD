@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     public Image[] BuyPartsIcons;
     public Sprite[] BuyPartsSprites;
     public GameObject WarningObj;
+    public GameObject ShopUI;
+
 
     public TextMeshProUGUI Timer;
     public TextMeshProUGUI Laps;
@@ -46,8 +48,9 @@ public class UIManager : MonoBehaviour
             GameObject buyPart = GameObject.Find(buyPartsName[i] + "(Clone)");
 
             if (buyPart != null)
-            {
+            {   
                 BuyPartsIcons[partIconIndex].gameObject.SetActive(true);
+                Debug.Log("ADDImage" +  buyPart);
                 BuyPartsIcons[partIconIndex].sprite = BuyPartsSprites[i];
 
                 if(partIconIndex < BuyPartsSprites.Length - 1)
@@ -74,5 +77,16 @@ public class UIManager : MonoBehaviour
     public void WarningMark(bool isON)
     {
         WarningObj.SetActive(isON);
+    }
+    public void GoShop()
+    {
+        ShopUI.gameObject.SetActive(true);
+    }
+
+    public void GetOUtShop()
+    {
+        ShopUI.gameObject.SetActive(false);
+        GameManager.Instance.Player().AddParts();
+        AddPartsIcon();
     }
 }
