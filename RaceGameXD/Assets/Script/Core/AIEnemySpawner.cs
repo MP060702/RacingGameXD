@@ -8,8 +8,10 @@ public class AIEnemySpawner : MonoBehaviour
     public GameObject ReverseDashEnemy;
     public GameObject FowardDashEnemy;
 
-    IEnumerator SpawnEnemy()
+    public IEnumerator SpawnEnemy()
     {
+        yield return new WaitForSeconds(5f);
+
         int enemyCount = UnityEngine.Random.Range(1, 3);
         for (int i = 0; i < enemyCount; i++)
         {
@@ -24,6 +26,7 @@ public class AIEnemySpawner : MonoBehaviour
                     break;
             }
         }
+
         yield return new WaitForSeconds(5f);
     }
 

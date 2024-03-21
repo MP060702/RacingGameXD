@@ -30,15 +30,17 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start()
-    {
+    {   
+
         _AIEnemySpawner = GetComponent<AIEnemySpawner>();
         _ItemManager = GetComponent<ItemManager>();
         _UIManager = GetComponent<UIManager>();
+        StartCoroutine("SpawnEnemy");
         RaceStart();
     }
 
     private void Update()
-    {   
+    {
         _UIManager.MoveNeedle();
         TimeStart();
     }
